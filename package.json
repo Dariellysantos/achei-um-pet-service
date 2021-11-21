@@ -1,0 +1,19 @@
+{
+  "name": "achei-um-pet-service",
+  "version": "1.0.0",
+  "description": "Service that manages abandoned animals and help offered",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dariellysantos/achei-um-pet-service.git"
+  },
+  "author": "Darielly Santos",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Dariellysantos/achei-um-pet-service/issues"
+  },
+  "homepage": "https://github.com/Dariellysantos/achei-um-pet-service#readme"
+}
