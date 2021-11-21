@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Dariellysantos/achei-um-pet-service/issues"
   },
-  "homepage": "https://github.com/Dariellysantos/achei-um-pet-service#readme"
+  "homepage": "https://github.com/Dariellysantos/achei-um-pet-service#readme",
+  "dependencies": {
+    "nodemon": "^2.0.15"
+  }
 }
