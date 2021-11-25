@@ -23,8 +23,6 @@ const connect = async () => {
   }
 };
 
-console.log(MONGODB_URI);
-
 module.exports = {
   connect,
 };
