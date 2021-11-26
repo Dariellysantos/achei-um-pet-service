@@ -35,10 +35,6 @@ const userSchema = new mongoose.Schema({
     type: Date,
     default: new Date(),
   },
-  deletedAt: {
-    type: Date,
-    default: new Date(),
-  },
   password: {
     type: Number,
     required: true,
