@@ -51,8 +51,30 @@ const createUser = async (req, res) => {
   }
 };
 
+const updateUserById = async (req, res) => {
+  try {
+    const findUser = await UserSchema.findById(req.params.id);
+
+    if (findUser) {
+      findUser.name = req.body.name || findUser.name;
+      findUser.email = req.body.email || findUser.email;
+      findUser.password = req.body.password || findUser.password;
+      findUser.postalCode = req.body.postalCode || findUser.postalCode;
+      findUser.phone = req.body.phone || findUser.phone;
+      findUser.socialMedia = req.body.socialMedia || findUser.socialMedia;
+    }
+
+    const savedUser = await findUser.save();
+    res.status(200).json({
+      message: " User updated successfully",
+      savedUser,
+    });
+  } catch (error) {}
+};
+
 module.exports = {
   getAll,
   getById,
   createUser,
+  updateUserById,
 };
