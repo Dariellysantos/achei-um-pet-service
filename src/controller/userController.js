@@ -41,7 +41,7 @@ const createUser = async (req, res) => {
     const sevedUser = await newUser.save();
 
     res.status(200).json({
-      message: "nota adastrada com sucesso!",
+      message: "User registered successfully!",
       sevedUser,
     });
   } catch (error) {
