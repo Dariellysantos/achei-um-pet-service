@@ -56,7 +56,22 @@ const getByUserId = async (req, res) => {
       });
   }
 };
+
+const deletePostById = async (req, res) => {
+  try {
+    const post = req.params.id;
+    let found = await PostSchema.findByIdAndRemove(post);
+    res.status(200).json(found);
+  } catch (error) {
+    if (post === undefined)
+      res.status(500).json({
+        message: error.message,
+      });
+  }
+};
+
 module.exports = {
   createPost,
   getByUserId,
+  deletePostById,
 };
