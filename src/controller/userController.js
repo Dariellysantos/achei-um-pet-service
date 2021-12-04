@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const UserSchema = require("../models/userSchema");
+const UserSchema = require("../models/usersSchema");
 
 const getAll = async (req, res) => {
   try {
