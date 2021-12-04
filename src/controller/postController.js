@@ -43,6 +43,20 @@ const createPost = async (req, res) => {
   }
 };
 
+const getByUserId = async (req, res) => {
+  try {
+    const post = req.params.id;
+    let found = await PostSchema.find({ id_user: post });
+    console.log(post);
+    res.status(200).json(found);
+  } catch (error) {
+    if (post === undefined)
+      res.status(500).json({
+        message: error.message,
+      });
+  }
+};
 module.exports = {
   createPost,
+  getByUserId,
 };
