@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const PostSchema = require("../models/postsSchema");
 const { post } = require("../routes/postRoutes");
+const UserSchema = require("../models/usersSchema");
 
 const createPost = async (req, res) => {
   try {
@@ -48,7 +49,6 @@ const getByUserId = async (req, res) => {
   try {
     const post = req.params.id;
     let found = await PostSchema.find({ id_user: post });
-    console.log(post);
     res.status(200).json(found);
   } catch (error) {
     if (post === undefined)
@@ -133,6 +133,28 @@ const createUp = async (req, res) => {
   }
 };
 
+const getAllHelper = async (req, res) => {
+  try {
+    const post = req.params.id;
+    let found = await PostSchema.findById(post);
+    let user = await UserSchema.findById(found.id_user);
+
+    res.status(200).json({
+      id: found._id,
+      owner: {
+        userId: user._id,
+        userName: user.name,
+        userPhone: user.phone,
+        userSocialMedia: user.socialMedia,
+      },
+    });
+  } catch (error) {
+    res.status(500).json({
+      message: error.message,
+    });
+  }
+};
+
 module.exports = {
   createPost,
   getByUserId,
@@ -140,4 +162,5 @@ module.exports = {
   getAll,
   getById,
   createUp,
+  getAllHelper,
 };
