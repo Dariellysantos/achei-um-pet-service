@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const PostSchema = require("../models/postsSchema");
+const { post } = require("../routes/postRoutes");
 
 const createPost = async (req, res) => {
   try {
@@ -96,9 +97,24 @@ const getAll = async (req, res) => {
   }
 };
 
+const getById = async (req, res) => {
+  try {
+    const postId = req.params.id;
+    let found = await PostSchema.findById(postId);
+
+    res.status(200).json(found);
+  } catch (error) {
+    if (post === undefined)
+      res.status(500).json({
+        message: error.message,
+      });
+  }
+};
+
 module.exports = {
   createPost,
   getByUserId,
   deletePostById,
   getAll,
+  getById,
 };
