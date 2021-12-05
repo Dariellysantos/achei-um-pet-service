@@ -11,7 +11,7 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
-app.use("/acheiumpet", userRoutes);
+app.use("/users", userRoutes);
 app.use("/posts", postRoutes);
 
 db.connect();
