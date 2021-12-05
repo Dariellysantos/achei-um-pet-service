@@ -48,6 +48,14 @@ const createUser = async (req, res) => {
 };
 
 const updateUserById = async (req, res) => {
+  const authHeader = req.get("authorization");
+
+  if (!authHeader) {
+    return res.status(401).send("erro no header");
+  }
+
+  const token = authHeader.split(" ")[1];
+
   try {
     const findUser = await UserSchema.findById(req.params.id);
 
