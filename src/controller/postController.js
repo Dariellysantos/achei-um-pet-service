@@ -134,6 +134,14 @@ const createUp = async (req, res) => {
 };
 
 const getAllHelper = async (req, res) => {
+  const authHeader = req.get("authorization");
+
+  if (!authHeader) {
+    return res.status(401).send("erro no header");
+  }
+
+  const token = authHeader.split(" ")[1];
+
   try {
     const post = req.params.id;
     let found = await PostSchema.findById(post);
