@@ -54,6 +54,7 @@ const updateUserById = async (req, res) => {
     if (findUser) {
       findUser.name = req.body.name || findUser.name;
       findUser.email = req.body.email || findUser.email;
+      findUser.password = req.body.password || findUser.password;
       findUser.postalCode = req.body.postalCode || findUser.postalCode;
       findUser.phone = req.body.phone || findUser.phone;
       findUser.socialMedia = req.body.socialMedia || findUser.socialMedia;
