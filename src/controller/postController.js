@@ -111,10 +111,33 @@ const getById = async (req, res) => {
   }
 };
 
+const createUp = async (req, res) => {
+  try {
+    const postId = req.params.id;
+
+    let oldPost = await PostSchema.findById(postId);
+
+    let newPost = await PostSchema.findByIdAndUpdate(
+      { _id: postId },
+      { up_quantity: oldPost.up_quantity + 1 },
+      { new: true }
+    );
+
+    res.status(200).json({
+      message: "UP registered successfully - total: " + newPost.up_quantity,
+    });
+  } catch (error) {
+    res.status(500).json({
+      message: error.message,
+    });
+  }
+};
+
 module.exports = {
   createPost,
   getByUserId,
   deletePostById,
   getAll,
   getById,
+  createUp,
 };
