@@ -5,6 +5,6 @@ const controller = require("../controller/userController");
 
 router.get("/:id", controller.getById);
 router.post("/", controller.createUser);
-router.patch("/:id/update", controller.updateUserById);
+router.patch("/:id", controller.updateUserById);
 
 module.exports = router;
