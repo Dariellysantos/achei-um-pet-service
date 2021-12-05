@@ -15,11 +15,18 @@ const getAll = async (req, res) => {
 const getById = async (req, res) => {
   try {
     const user = req.params.id;
-    let found = await UserSchema.findById(user);
+    const userDb = await UserSchema.find({ _id: user });
 
-    res.status(200).json(found);
+    const userResponse = userDb.map((post) => ({
+      name: post.name,
+      email: post.email,
+      phone: post.phone,
+      socialMedia: post.socialMedia,
+    }));
+
+    res.status(200).json(userResponse);
   } catch (error) {
-    if (user === undefined)
+    if (userDb === undefined)
       res.status(500).json({
         message: error.message,
       });
