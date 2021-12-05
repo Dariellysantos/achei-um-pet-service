@@ -70,8 +70,35 @@ const deletePostById = async (req, res) => {
   }
 };
 
+const getAll = async (req, res) => {
+  try {
+    const postsDb = await PostSchema.find();
+
+    const postsResponse = postsDb.map((post) => ({
+      id: post.id,
+      photo: post.photo,
+      address: {
+        district: post.address.district,
+        city: post.address.city,
+      },
+      necessity: {
+        rescue: post.necessity.rescue,
+        transportation: post.necessity.transportation,
+        temporaryHome: post.necessity.temporaryHome,
+      },
+    }));
+
+    res.status(200).json(postsResponse);
+  } catch (error) {
+    res.status(500).json({
+      message: error.message,
+    });
+  }
+};
+
 module.exports = {
   createPost,
   getByUserId,
   deletePostById,
+  getAll,
 };
