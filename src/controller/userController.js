@@ -73,7 +73,9 @@ const updateUserById = async (req, res) => {
       message: " User updated successfully",
       savedUser,
     });
-  } catch (error) {}
+  } catch (err) {
+    res.status(500).json(err);
+  }
 };
 
 module.exports = {
