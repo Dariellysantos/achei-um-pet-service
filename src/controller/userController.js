@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const UserSchema = require("../models/usersSchema");
+const jwt = require("jsonwebtoken");
 
 const getById = async (req, res) => {
   try {
@@ -56,25 +57,35 @@ const updateUserById = async (req, res) => {
 
   const token = authHeader.split(" ")[1];
 
-  try {
-    const findUser = await UserSchema.findById(req.params.id);
+  const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY);
 
-    if (findUser) {
-      findUser.name = req.body.name || findUser.name;
-      findUser.email = req.body.email || findUser.email;
-      findUser.password = req.body.password || findUser.password;
-      findUser.postalCode = req.body.postalCode || findUser.postalCode;
-      findUser.phone = req.body.phone || findUser.phone;
-      findUser.socialMedia = req.body.socialMedia || findUser.socialMedia;
+  const userIdParam = req.params.id;
+
+  if (userIdParam === decoded.userId) {
+    try {
+      const findUser = await UserSchema.findById(req.params.id);
+
+      if (findUser) {
+        findUser.name = req.body.name || findUser.name;
+        findUser.email = req.body.email || findUser.email;
+        findUser.password = req.body.password || findUser.password;
+        findUser.postalCode = req.body.postalCode || findUser.postalCode;
+        findUser.phone = req.body.phone || findUser.phone;
+        findUser.socialMedia = req.body.socialMedia || findUser.socialMedia;
+      }
+
+      const savedUser = await findUser.save();
+      res.status(200).json({
+        message: " User updated successfully",
+        savedUser,
+      });
+    } catch (err) {
+      res.status(500).json(err);
     }
-
-    const savedUser = await findUser.save();
-    res.status(200).json({
-      message: " User updated successfully",
-      savedUser,
+  } else {
+    res.status(401).json({
+      message: "Usuário não autorizado.",
     });
-  } catch (err) {
-    res.status(500).json(err);
   }
 };
 
