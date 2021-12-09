@@ -3,6 +3,11 @@ const UserSchema = require("../models/usersSchema");
 const jwt = require("jsonwebtoken");
 
 const getById = async (req, res) => {
+  const authHeader = req.get("authorization");
+
+  if (!authHeader) {
+    return res.status(401).send("erro no header");
+  }
   try {
     const user = req.params.id;
     const userDb = await UserSchema.find({ _id: user });
