@@ -16,7 +16,13 @@ const createLogin = async (req, res) => {
   if (body.password == user[0].password) {
     var token = jwt.sign({ userId: user[0]._id }, process.env.JWT_SECRET_KEY);
 
-    res.status(200).json(token);
+    res.status(200).json({
+      message: "Acesso liberado",
+      code: "SUCCESS",
+      data: {
+        token: token,
+      },
+    });
   } else {
     res.status(401).json({
       message: "Senha incorreta",
