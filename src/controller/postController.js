@@ -118,6 +118,11 @@ const getAll = async (req, res) => {
 };
 
 const getById = async (req, res) => {
+  const authHeader = req.get("authorization");
+
+  if (!authHeader) {
+    return res.status(401).send("erro no header");
+  }
   try {
     const postId = req.params.id;
     let found = await PostSchema.findById(postId);
