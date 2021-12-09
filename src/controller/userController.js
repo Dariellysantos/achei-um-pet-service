@@ -29,6 +29,12 @@ const getById = async (req, res) => {
 };
 
 const createUser = async (req, res) => {
+  const authHeader = req.get("authorization");
+
+  if (!authHeader) {
+    return res.status(401).send("erro no header");
+  }
+
   try {
     const newUser = new UserSchema({
       _id: new mongoose.Types.ObjectId(),
