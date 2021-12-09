@@ -18,11 +18,6 @@ const createLogin = async (req, res) => {
 
     res.status(200).json(token);
   }
-  res.status(401).json({
-    message: "E-mail não cadastrado",
-    code: "ERROR_UNREGISTERED_EMAIL",
-    data: null,
-  });
 };
 
 module.exports = {
