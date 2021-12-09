@@ -3,30 +3,39 @@ const jwt = require("jsonwebtoken");
 
 const createLogin = async (req, res) => {
   const body = req.body;
-  const user = await UserSchema.find({ email: body.email });
 
-  if (user.length === 0) {
-    res.status(404).json({
-      message: "E-mail não encontrada",
-      code: "NOT_FOUND_ERROR",
-      data: null,
-    });
-  }
+  try {
+    const user = await UserSchema.find({ email: body.email });
 
-  if (body.password == user[0].password) {
-    var token = jwt.sign({ userId: user[0]._id }, process.env.JWT_SECRET_KEY);
+    if (user.length === 0) {
+      res.status(404).json({
+        message: "E-mail não encontrada",
+        code: "NOT_FOUND_ERROR",
+        data: null,
+      });
+    }
 
-    res.status(200).json({
-      message: "Acesso liberado",
-      code: "SUCCESS",
-      data: {
-        token: token,
-      },
-    });
-  } else {
-    res.status(401).json({
-      message: "Senha incorreta",
-      code: "ERROR_INCORRECT_PASSWORD",
+    if (body.password == user[0].password) {
+      var token = jwt.sign({ userId: user[0]._id }, process.env.JWT_SECRET_KEY);
+
+      res.status(200).json({
+        message: "Acesso liberado",
+        code: "SUCCESS",
+        data: {
+          token: token,
+        },
+      });
+    } else {
+      res.status(401).json({
+        message: "Senha incorreta",
+        code: "ERROR_INCORRECT_PASSWORD",
+        data: null,
+      });
+    }
+  } catch (err) {
+    res.status(500).json({
+      message: "Erro interno.",
+      code: "INTERNAL_SERVER_ERROR",
       data: null,
     });
   }
