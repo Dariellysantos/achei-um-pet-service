@@ -87,6 +87,11 @@ const deletePostById = async (req, res) => {
 };
 
 const getAll = async (req, res) => {
+  const authHeader = req.get("authorization");
+
+  if (!authHeader) {
+    return res.status(401).send("erro no header");
+  }
   try {
     const postsDb = await PostSchema.find();
 
