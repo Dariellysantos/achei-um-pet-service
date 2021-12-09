@@ -69,6 +69,11 @@ const getByUserId = async (req, res) => {
 };
 
 const deletePostById = async (req, res) => {
+  const authHeader = req.get("authorization");
+
+  if (!authHeader) {
+    return res.status(401).send("erro no header");
+  }
   try {
     const post = req.params.id;
     let found = await PostSchema.findByIdAndRemove(post);
