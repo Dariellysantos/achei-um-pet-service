@@ -4,6 +4,11 @@ const { post } = require("../routes/postRoutes");
 const UserSchema = require("../models/usersSchema");
 
 const createPost = async (req, res) => {
+  const authHeader = req.get("authorization");
+
+  if (!authHeader) {
+    return res.status(401).send("erro no header");
+  }
   try {
     const newPost = new PostSchema({
       _id: new mongoose.Types.ObjectId(),
