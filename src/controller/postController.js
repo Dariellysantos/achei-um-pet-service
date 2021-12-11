@@ -130,7 +130,13 @@ const getById = async (req, res) => {
     let found = await PostSchema.findById(postId);
 
     res.status(200).json(found);
-  } catch (error) {
+  } catch (err) {
+    if (err.massageFormat === undefined) {
+      return res.status(409).json({
+        message: "Post not found.",
+        code: "NOT_FOUND_ERROR",
+      });
+    }
     if (post === undefined)
       res.status(500).json({
         message: error.message,
