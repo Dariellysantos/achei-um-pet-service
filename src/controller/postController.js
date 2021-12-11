@@ -165,7 +165,13 @@ const createUp = async (req, res) => {
     res.status(200).json({
       message: "UP registered successfully - total: " + newPost.up_quantity,
     });
-  } catch (error) {
+  } catch (err) {
+    if (err.massageFormat === undefined) {
+      res.status(409).json({
+        message: "Post not found.",
+        code: "NOT_FOUND_ERROR",
+      });
+    }
     res.status(500).json({
       message: error.message,
     });
