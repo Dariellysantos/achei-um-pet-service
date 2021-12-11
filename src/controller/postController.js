@@ -37,6 +37,13 @@ const createPost = async (req, res) => {
       },
     });
 
+    if (newPost.photo === "") {
+      res.status(400).json({
+        message: "Post has no image.",
+        code: "ERROR_NO_PHOTO",
+      });
+    }
+
     const sevedPost = await newPost.save();
 
     res.status(200).json({
