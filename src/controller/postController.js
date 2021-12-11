@@ -78,6 +78,15 @@ const getByUserId = async (req, res) => {
   try {
     const post = req.params.id;
     let found = await PostSchema.find({ id_user: post });
+    console.log(found);
+
+    if (found.length === 0) {
+      return res.status(404).json({
+        message: "User not found.",
+        code: "NOT_FOUND_ERROR",
+      });
+    }
+
     res.status(200).json(found);
   } catch (error) {
     if (post === undefined)
