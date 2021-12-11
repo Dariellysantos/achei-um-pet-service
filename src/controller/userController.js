@@ -46,14 +46,13 @@ const createUser = async (req, res) => {
       socialMedia: req.body.socialMedia,
     });
 
-
-
     if (newUser.name === "" || newUser.name.length < 6) {
       res.status(400).json({
         message: "Empty or invalid name.",
         code: "ERROR_INVALID_NAME",
       });
     }
+
     if (
       newUser.email === "" ||
       newUser.email.indexOf("@") < 0 ||
@@ -70,9 +69,16 @@ const createUser = async (req, res) => {
       message: "User registered successfully!",
       sevedUser,
     });
-  } catch (error) {
+  } catch (err) {
+    if (err.code === 11000) {
+      return res.status(409).json({
+        message: "E-mail already registered.",
+        code: "ERROR_EMAIL_USED",
+      });
+    }
+
     res.status(500).json({
-      message: error.message,
+      message: err.message,
     });
   }
 };
