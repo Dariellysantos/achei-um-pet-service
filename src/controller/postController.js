@@ -112,7 +112,9 @@ const getAll = async (req, res) => {
     res.status(200).json(postsResponse);
   } catch (error) {
     res.status(500).json({
-      message: error.message,
+      message: "Erro interno.",
+      code: "INTERNAL_SERVER_ERROR",
+      data: null,
     });
   }
 };
