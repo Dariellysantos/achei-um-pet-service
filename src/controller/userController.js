@@ -46,9 +46,19 @@ const createUser = async (req, res) => {
       socialMedia: req.body.socialMedia,
     });
 
+    if (
+      newUser.email === "" ||
+      newUser.email.indexOf("@") < 0 ||
+      newUser.email.indexOf(".com") < 0
+    ) {
+      res.status(401).json({
+        message: "Empty or invalid email.",
+        code: "ERROR_INVALID_NAME",
+      });
+    }
     const sevedUser = await newUser.save();
 
-    res.status(200).json({
+    res.status(201).json({
       message: "User registered successfully!",
       sevedUser,
     });
