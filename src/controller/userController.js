@@ -12,6 +12,13 @@ const getById = async (req, res) => {
     const user = req.params.id;
     const userDb = await UserSchema.find({ _id: user });
 
+    if (userDb.length === 0) {
+      return res.status(404).json({
+        message: "User not found.",
+        code: "NOT_FOUND_ERROR",
+      });
+    }
+
     const userResponse = userDb.map((post) => ({
       name: post.name,
       email: post.email,
