@@ -198,7 +198,10 @@ const getById = async (req, res) => {
 const createUp = async (req, res) => {
   const authHeader = req.get("authorization");
   if (!authHeader) {
-    return res.status(401).send("erro no header");
+    return res.status(401).json({
+      message: "It did not receive a token jwt",
+      code: "NOT_AUTHORIZED_WITHOUT_TOKEN",
+    });
   }
 
   try {
