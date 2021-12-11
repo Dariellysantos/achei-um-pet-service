@@ -44,6 +44,18 @@ const createPost = async (req, res) => {
       });
     }
 
+    if (
+      newPost.address.street === "" ||
+      newPost.address.number === 0 ||
+      newPost.address.district === "" ||
+      newPost.address.city === ""
+    ) {
+      res.status(400).json({
+        message: "Incomplete or empty address fields.",
+        code: "ERROR_REQUIRED_FIELD_ADDRESS",
+      });
+    }
+
     const sevedPost = await newPost.save();
 
     res.status(200).json({
