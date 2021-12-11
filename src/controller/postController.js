@@ -81,7 +81,8 @@ const deletePostById = async (req, res) => {
   } catch (error) {
     if (post === undefined)
       res.status(500).json({
-        message: error.message,
+        message: "Internal error.",
+        code: "INTERNAL_SERVER_ERROR",
       });
   }
 };
