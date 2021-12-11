@@ -107,9 +107,9 @@ const deletePostById = async (req, res) => {
   const authHeader = req.get("authorization");
 
   if (!authHeader) {
-    return res.status(401).send({
-      message: "not authorized",
-      code: "NOT_AUTHORIZED",
+    return res.status(401).json({
+      message: "It did not receive a token jwt",
+      code: "NOT_AUTHORIZED_WITHOUT_TOKEN",
     });
   }
   try {
