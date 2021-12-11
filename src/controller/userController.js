@@ -110,6 +110,24 @@ const updateUserById = async (req, res) => {
         findUser.socialMedia = req.body.socialMedia || findUser.socialMedia;
       }
 
+      if (findUser.name === "" || findUser.name.length < 6) {
+        res.status(400).json({
+          message: "Empty or invalid name.",
+          code: "ERROR_INVALID_NAME",
+        });
+      }
+
+      if (
+        findUser.email === "" ||
+        findUser.email.indexOf("@") < 0 ||
+        findUser.email.indexOf(".com") < 0
+      ) {
+        res.status(400).json({
+          message: "Empty or invalid email.",
+          code: "ERROR_INVALID_EMAIL",
+        });
+      }
+
       const savedUser = await findUser.save();
       res.status(200).json({
         message: " User updated successfully",
