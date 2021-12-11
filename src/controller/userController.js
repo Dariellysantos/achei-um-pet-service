@@ -149,7 +149,8 @@ const updateUserById = async (req, res) => {
     }
   } else {
     res.status(401).json({
-      message: "Usuário não autorizado.",
+      message: "not authorized",
+      code: "NOT_AUTHORIZED",
     });
   }
 };
