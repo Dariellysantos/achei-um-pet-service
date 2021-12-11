@@ -106,6 +106,12 @@ const deletePostById = async (req, res) => {
   try {
     const post = req.params.id;
     let found = await PostSchema.findByIdAndRemove(post);
+    if (found === null) {
+      res.status(404).json({
+        message: "post not found.",
+        code: "NOT_FOUND_ERROR",
+      });
+    }
     res.status(200).json(found);
   } catch (error) {
     if (post === undefined)
