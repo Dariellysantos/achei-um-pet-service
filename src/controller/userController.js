@@ -116,6 +116,14 @@ const updateUserById = async (req, res) => {
         savedUser,
       });
     } catch (err) {
+      if (err.code === 11000) {
+        return res.status(409).json({
+          message: "E-mail already registered.",
+          code: "ERROR_EMAIL_USED",
+        });
+      }
+
+      console.log(err);
       res.status(500).json(err);
     }
   } else {
