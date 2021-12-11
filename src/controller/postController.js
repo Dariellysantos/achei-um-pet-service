@@ -101,7 +101,10 @@ const deletePostById = async (req, res) => {
   const authHeader = req.get("authorization");
 
   if (!authHeader) {
-    return res.status(401).send("erro no header");
+    return res.status(401).send({
+      message: "not authorized",
+      code: "NOT_AUTHORIZED",
+    });
   }
   try {
     const post = req.params.id;
