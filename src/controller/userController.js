@@ -46,6 +46,14 @@ const createUser = async (req, res) => {
       socialMedia: req.body.socialMedia,
     });
 
+
+
+    if (newUser.name === "" || newUser.name.length < 6) {
+      res.status(400).json({
+        message: "Empty or invalid name.",
+        code: "ERROR_INVALID_NAME",
+      });
+    }
     if (
       newUser.email === "" ||
       newUser.email.indexOf("@") < 0 ||
