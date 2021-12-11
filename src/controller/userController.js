@@ -30,7 +30,8 @@ const getById = async (req, res) => {
   } catch (error) {
     if (userDb === undefined)
       res.status(500).json({
-        message: error.message,
+        message: "Internal error.",
+        code: "INTERNAL_SERVER_ERROR",
       });
   }
 };
