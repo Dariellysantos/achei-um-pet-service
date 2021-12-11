@@ -135,7 +135,10 @@ const getAll = async (req, res) => {
   const authHeader = req.get("authorization");
 
   if (!authHeader) {
-    return res.status(401).send("erro no header");
+    return res.status(401).json({
+      message: "It did not receive a token jwt",
+      code: "NOT_AUTHORIZED_WITHOUT_TOKEN",
+    });
   }
   try {
     const postsDb = await PostSchema.find();
