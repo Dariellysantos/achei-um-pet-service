@@ -157,7 +157,11 @@ const getAll = async (req, res) => {
       },
     }));
 
-    res.status(200).json(postsResponse);
+    return res.status(200).json({
+      message: "User with access to the feed.",
+      code: "SUCCESS",
+      data: postsResponse,
+    });
   } catch (error) {
     res.status(500).json({
       message: "Internal error.",
