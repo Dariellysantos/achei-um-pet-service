@@ -201,6 +201,7 @@ const getById = async (req, res) => {
 
 const createUp = async (req, res) => {
   const authHeader = req.get("authorization");
+
   if (!authHeader) {
     return res.status(401).json({
       message: "It did not receive a token jwt",
@@ -210,7 +211,6 @@ const createUp = async (req, res) => {
 
   try {
     const postId = req.params.id;
-
     let oldPost = await PostSchema.findById(postId);
 
     if (oldPost === null) {

@@ -79,7 +79,7 @@ const createUser = async (req, res) => {
     }
     const sevedUser = await newUser.save();
 
-    res.status(201).json({
+    return res.status(201).json({
       message: "User registered successfully!",
       sevedUser,
     });
@@ -90,8 +90,7 @@ const createUser = async (req, res) => {
         code: "ERROR_EMAIL_USED",
       });
     }
-
-    res.status(500).json({
+    return res.status(500).json({
       message: "Internal error.",
       code: "INTERNAL_SERVER_ERROR",
     });
