@@ -61,7 +61,7 @@ const createUser = async (req, res) => {
     });
 
     if (newUser.name === "" || newUser.name.length < 6) {
-      res.status(400).json({
+      return res.status(400).json({
         message: "Empty or invalid name.",
         code: "ERROR_INVALID_NAME",
       });
