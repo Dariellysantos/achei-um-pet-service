@@ -53,7 +53,7 @@ const createPost = async (req, res) => {
       newPost.address.district === "" ||
       newPost.address.city === ""
     ) {
-      res.status(400).json({
+      return res.status(400).json({
         message: "Incomplete or empty address fields.",
         code: "ERROR_REQUIRED_FIELD_ADDRESS",
       });
