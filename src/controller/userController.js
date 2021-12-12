@@ -145,7 +145,7 @@ const updateUserById = async (req, res) => {
       }
 
       const savedUser = await findUser.save();
-      res.status(200).json({
+      return res.status(200).json({
         message: " User updated successfully",
         savedUser,
       });
@@ -158,13 +158,13 @@ const updateUserById = async (req, res) => {
       }
 
       console.log(err);
-      res.status(500).json({
+      return res.status(500).json({
         message: "Internal error.",
         code: "INTERNAL_SERVER_ERROR",
       });
     }
   } else {
-    res.status(401).json({
+    return res.status(401).json({
       message: "not authorized",
       code: "NOT_AUTHORIZED",
     });
