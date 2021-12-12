@@ -26,8 +26,8 @@ const createLogin = async (req, res) => {
         },
       });
     } else {
-      res.status(401).json({
-        message: "Senha incorreta",
+      return res.status(401).json({
+        message: "Incorrect password",
         code: "ERROR_INCORRECT_PASSWORD",
         data: null,
       });
