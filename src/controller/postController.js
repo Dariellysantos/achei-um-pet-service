@@ -162,12 +162,8 @@ const getAll = async (req, res) => {
       code: "SUCCESS",
       data: postsResponse,
     });
-      message: "User with access to the feed.",
-      code: "SUCCESS",
-      data: postsResponse,
-    });
   } catch (error) {
-    res.status(500).json({
+    return res.status(500).json({
       message: "Internal error.",
       code: "INTERNAL_SERVER_ERROR",
     });
