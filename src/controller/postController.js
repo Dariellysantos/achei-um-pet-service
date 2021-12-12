@@ -96,7 +96,7 @@ const getByUserId = async (req, res) => {
     res.status(200).json(found);
   } catch (error) {
     if (post === undefined)
-      res.status(500).json({
+      return res.status(500).json({
         message: "Internal error.",
         code: "INTERNAL_SERVER_ERROR",
       });
