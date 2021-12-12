@@ -32,7 +32,7 @@ const getById = async (req, res) => {
     res.status(200).json(userResponse);
   } catch (error) {
     if (userDb === undefined)
-      res.status(500).json({
+      return res.status(500).json({
         message: "Internal error.",
         code: "INTERNAL_SERVER_ERROR",
       });
