@@ -253,7 +253,7 @@ const getAllHelper = async (req, res) => {
     let found = await PostSchema.findById(post);
     let user = await UserSchema.findById(found.id_user);
 
-    res.status(200).json({
+    return res.status(200).json({
       id: found._id,
       owner: {
         userId: user._id,
@@ -264,7 +264,8 @@ const getAllHelper = async (req, res) => {
     });
   } catch (error) {
     res.status(500).json({
-      message: error.message,
+      message: "Internal error.",
+      code: "INTERNAL_SERVER_ERROR",
     });
   }
 };
