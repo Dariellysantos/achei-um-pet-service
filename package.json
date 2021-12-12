@@ -23,6 +23,7 @@
     "express": "^4.17.1",
     "jest": "^27.4.4",
     "jsonwebtoken": "^8.5.1",
+    "mockingoose": "^2.15.2",
     "mongoose": "^6.0.13",
     "nodemon": "^2.0.15"
   }
