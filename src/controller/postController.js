@@ -41,7 +41,7 @@ const createPost = async (req, res) => {
     });
 
     if (newPost.photo === "") {
-      res.status(400).json({
+      return res.status(400).json({
         message: "Post has no image.",
         code: "ERROR_NO_PHOTO",
       });
