@@ -33,8 +33,8 @@ const createLogin = async (req, res) => {
       });
     }
   } catch (err) {
-    res.status(500).json({
-      message: "Erro interno.",
+    return res.status(500).json({
+      message: "Internal error.",
       code: "INTERNAL_SERVER_ERROR",
       data: null,
     });
