@@ -72,7 +72,7 @@ const createUser = async (req, res) => {
       newUser.email.indexOf("@") < 0 ||
       newUser.email.indexOf(".com") < 0
     ) {
-      res.status(400).json({
+      return res.status(400).json({
         message: "Empty or invalid email.",
         code: "ERROR_INVALID_EMAIL",
       });
