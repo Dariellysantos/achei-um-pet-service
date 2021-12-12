@@ -8,8 +8,8 @@ const createLogin = async (req, res) => {
     const user = await UserSchema.find({ email: body.email });
 
     if (user.length === 0) {
-      res.status(404).json({
-        message: "E-mail não encontrada",
+      return res.status(404).json({
+        message: "E-mail not found.",
         code: "NOT_FOUND_ERROR",
         data: null,
       });
