@@ -23,7 +23,7 @@ const createPost = async (req, res) => {
       id_user: decoded.userId,
       photo: req.body.photo,
       address: {
-        postalCode: req.boy.address.postalCode,
+        postalCode: req.body.address.postalCode,
         street: req.body.address.street,
         number: req.body.address.number,
         district: req.body.address.district,
