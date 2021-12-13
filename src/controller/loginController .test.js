@@ -96,5 +96,33 @@ describe("getLogin unit test", () => {
       data: null,
     });
   });
-  test("fail and return 500 when password is incorrect", () => {});
+
+  test("fail and return 500 when database request fails", async () => {
+    mockingoose(UserSchema).toReturn(
+      new Error("Database is not connected"),
+      "find"
+    );
+
+    const res = {};
+    res.send = jest.fn().mockReturnValue(res);
+    res.status = jest.fn().mockReturnValue(res);
+    res.json = jest.fn();
+
+    await loginController.createLogin(
+      {
+        body: {
+          email: "test@email.com",
+          password: "123456",
+        },
+      },
+      res
+    );
+
+    expect(res.status).toHaveBeenCalledWith(500);
+    expect(res.json).toHaveBeenCalledWith({
+      message: "Internal error.",
+      code: "INTERNAL_SERVER_ERROR",
+      data: null,
+    });
+  });
 });
