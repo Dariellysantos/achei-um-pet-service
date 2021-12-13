@@ -33,7 +33,7 @@ describe("getLogin unit test", () => {
 
     expect(res.status).toHaveBeenCalledWith(200);
     expect(res.json).toHaveBeenCalledWith({
-      message: "Acesso liberado",
+      message: "Allowed access",
       code: "SUCCESS",
       data: {
         token:
