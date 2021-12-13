@@ -29,7 +29,7 @@ const userSchema = new mongoose.Schema({
   },
   authorization: {
     permission: {
-      type: Date,
+      type: Boolean,
       required: true,
     },
   },
