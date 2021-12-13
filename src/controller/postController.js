@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 const PostSchema = require("../models/postsSchema");
 const { post } = require("../routes/postRoutes");
 const UserSchema = require("../models/usersSchema");
+const jwt = require("jsonwebtoken");
 
 const createPost = async (req, res) => {
   const authHeader = req.get("authorization");
@@ -12,10 +13,14 @@ const createPost = async (req, res) => {
       code: "NOT_AUTHORIZED_WITHOUT_TOKEN",
     });
   }
+
+  const token = authHeader.split(" ")[1];
+  const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY);
+
   try {
     const newPost = new PostSchema({
       _id: new mongoose.Types.ObjectId(),
-      id_user: req.body.idUser,
+      id_user: decoded.userId,
       photo: req.body.photo,
       address: {
         street: req.body.address.street,
@@ -112,6 +117,7 @@ const deletePostById = async (req, res) => {
       code: "NOT_AUTHORIZED_WITHOUT_TOKEN",
     });
   }
+
   try {
     const post = req.params.id;
     let postFound = await PostSchema.findById(post);
@@ -137,7 +143,6 @@ const deletePostById = async (req, res) => {
 
     return res.status(200).json(found);
   } catch (error) {
-    console.log(error);
     if (post === undefined)
       res.status(500).json({
         message: "Internal error.",
