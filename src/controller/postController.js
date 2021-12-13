@@ -146,7 +146,11 @@ const deletePostById = async (req, res) => {
       });
     }
 
-    return res.status(200).json(found);
+    return res.status(200).json({
+      message: "Post deleted successfully!",
+      code: "SUCCESS",
+      data: decoded,
+    });
   } catch (error) {
     if (post === undefined)
       return res.status(500).json({
