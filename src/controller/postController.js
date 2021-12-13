@@ -123,7 +123,6 @@ const deletePostById = async (req, res) => {
     let postFound = await PostSchema.findById(post);
 
     const token = authHeader.split(" ")[1];
-    //extrair o id do token
     const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY);
 
     if (decoded.userId !== postFound.id_user.valueOf()) {
@@ -273,6 +272,13 @@ const getAllHelper = async (req, res) => {
     const post = req.params.id;
     let found = await PostSchema.findById(post);
     let user = await UserSchema.findById(found.id_user);
+
+    if (!user.authorization.permission) {
+      return res.status(401).json({
+        message: "Post author data is not authorized for sharing",
+        code: "UNAUTHOZIZED_ DATA_SHARING",
+      });
+    }
 
     return res.status(200).json({
       id: found._id,
