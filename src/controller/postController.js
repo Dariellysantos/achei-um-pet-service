@@ -309,12 +309,12 @@ const getAllHelper = async (req, res) => {
     }
 
     return res.status(200).json({
-      id: found._id,
-      owner: {
-        userId: user._id,
-        userName: user.name,
-        userPhone: user.phone,
-        userSocialMedia: user.socialMedia,
+        id: found._id,
+        owner: {
+          userId: user._id,
+          userName: user.name,
+          userPhone: user.phone,
+          userSocialMedia: user.socialMedia,
       },
     });
   } catch (err) {
