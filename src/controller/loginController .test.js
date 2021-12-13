@@ -41,6 +41,7 @@ describe("getLogin unit test", () => {
       },
     });
   });
+
   test("fail and return 404 when email does not exists", async () => {
     mockingoose(UserSchema).toReturn([], "find");
 
@@ -66,6 +67,34 @@ describe("getLogin unit test", () => {
       data: null,
     });
   });
-  test("fail and return 401 when password is incorrect", () => {});
+
+  test("fail and return 401 when password is incorrect", async () => {
+    mockingoose(UserSchema).toReturn(
+      [{ email: "test@email.com", password: "67890" }],
+      "find"
+    );
+
+    const res = {};
+    res.send = jest.fn().mockReturnValue(res);
+    res.status = jest.fn().mockReturnValue(res);
+    res.json = jest.fn();
+
+    await loginController.createLogin(
+      {
+        body: {
+          email: "test@email.com",
+          password: "123456",
+        },
+      },
+      res
+    );
+
+    expect(res.status).toHaveBeenCalledWith(401);
+    expect(res.json).toHaveBeenCalledWith({
+      message: "Incorrect password",
+      code: "ERROR_INCORRECT_PASSWORD",
+      data: null,
+    });
+  });
   test("fail and return 500 when password is incorrect", () => {});
 });
