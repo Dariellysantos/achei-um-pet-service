@@ -52,7 +52,7 @@ const createUser = async (req, res) => {
 
   try {
     const passwordCrypt = hashPassword(req.body.password);
-    console.log(passwordCrypt);
+
     const newUser = new UserSchema({
       _id: new mongoose.Types.ObjectId(),
       name: req.body.name,
@@ -87,7 +87,6 @@ const createUser = async (req, res) => {
       sevedUser,
     });
   } catch (err) {
-    console.log(err);
     if (err.code === 11000) {
       return res.status(409).json({
         message: "E-mail already registered.",
