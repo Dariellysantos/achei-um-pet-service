@@ -99,7 +99,11 @@ const getByUserId = async (req, res) => {
       });
     }
 
-    return res.status(200).json(found);
+    return res.status(200).json({
+      message: "Post seved successfully!",
+      code: "SUCCESS",
+      data: found,
+    });
   } catch (error) {
     return res.status(500).json({
       message: "Internal error.",
