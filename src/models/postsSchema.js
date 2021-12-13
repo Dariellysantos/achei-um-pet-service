@@ -12,6 +12,10 @@ const postSchema = new mongoose.Schema({
     required: true,
   },
   address: {
+    postalCode: {
+      type: Number,
+      required: true,
+    },
     street: {
       type: String,
       required: true,
