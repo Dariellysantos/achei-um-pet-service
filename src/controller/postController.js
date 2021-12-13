@@ -264,7 +264,9 @@ const createUp = async (req, res) => {
     );
 
     return res.status(200).json({
-      message: "UP registered successfully - total: " + newPost.up_quantity,
+      message: "UP successfully loaded.",
+      code: "SUCCESS",
+      data: "UP registered successfully - total: " + newPost.up_quantity,
     });
   } catch (err) {
     return res.status(500).json({
