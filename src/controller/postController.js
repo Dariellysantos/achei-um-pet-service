@@ -208,7 +208,11 @@ const getById = async (req, res) => {
     const postId = req.params.id;
     let found = await PostSchema.findById(postId);
 
-    return res.status(200).json(found);
+    return res.status(200).json({
+      message: "Posts successfully loaded.",
+      code: "SUCCESS",
+      data: found,
+    });
   } catch (err) {
     if (err.massageFormat === undefined) {
       return res.status(409).json({
