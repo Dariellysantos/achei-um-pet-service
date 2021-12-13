@@ -2,6 +2,7 @@ const UserSchema = require("../models/usersSchema");
 const loginController = require("../controller/loginController");
 const mockingoose = require("mockingoose");
 const jwt = require("jsonwebtoken");
+const bcrypt = require("bcrypt");
 
 describe("getLogin unit test", () => {
   test("success", async () => {
@@ -9,6 +10,8 @@ describe("getLogin unit test", () => {
       [{ email: "test@email.com", password: "123456" }],
       "find"
     );
+
+    jest.spyOn(bcrypt, "compare").mockReturnValue(true);
 
     jest
       .spyOn(jwt, "sign")
@@ -74,6 +77,8 @@ describe("getLogin unit test", () => {
       "find"
     );
 
+    jest.spyOn(bcrypt, "compare").mockReturnValue(false);
+
     const res = {};
     res.send = jest.fn().mockReturnValue(res);
     res.status = jest.fn().mockReturnValue(res);
@@ -132,8 +137,43 @@ describe("getLogin unit test", () => {
       "find"
     );
 
+    jest.spyOn(bcrypt, "compare").mockReturnValue(true);
+
     jest.spyOn(jwt, "sign").mockImplementation(() => {
       throw new Error("generic error during sign token");
+    });
+
+    const res = {};
+    res.send = jest.fn().mockReturnValue(res);
+    res.status = jest.fn().mockReturnValue(res);
+    res.json = jest.fn();
+
+    await loginController.createLogin(
+      {
+        body: {
+          email: "test@email.com",
+          password: "123456",
+        },
+      },
+      res
+    );
+
+    expect(res.status).toHaveBeenCalledWith(500);
+    expect(res.json).toHaveBeenCalledWith({
+      message: "Internal error.",
+      code: "INTERNAL_SERVER_ERROR",
+      data: null,
+    });
+  });
+
+  test("fail and return 500 when token sign fail", async () => {
+    mockingoose(UserSchema).toReturn(
+      [{ email: "test@email.com", password: "123456" }],
+      "find"
+    );
+
+    jest.spyOn(bcrypt, "compare").mockImplementation(() => {
+      throw new Error("generic error during compare password");
     });
 
     const res = {};

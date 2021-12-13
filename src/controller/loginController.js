@@ -1,5 +1,6 @@
 const UserSchema = require("../models/usersSchema");
 const jwt = require("jsonwebtoken");
+const bcrypt = require("bcrypt");
 
 const createLogin = async (req, res) => {
   const body = req.body;
@@ -15,7 +16,9 @@ const createLogin = async (req, res) => {
       });
     }
 
-    if (body.password == user[0].password) {
+    const match = await bcrypt.compare(body.password, user[0].password);
+
+    if (match) {
       var token = jwt.sign({ userId: user[0]._id }, process.env.JWT_SECRET_KEY);
 
       return res.status(200).json({
