@@ -53,7 +53,7 @@ const createUser = async (req, res) => {
       phone: req.body.phone,
       socialMedia: req.body.socialMedia,
       authorization: {
-        permission: req.body.permission,
+        permission: req.body.authorization.permission,
       },
     });
 
