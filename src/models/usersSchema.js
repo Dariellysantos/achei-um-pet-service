@@ -35,7 +35,8 @@ const userSchema = new mongoose.Schema({
   authorization: {
     permission: {
       type: Date,
-    default: new Date(),
+      required: true,
+    },
   },
 });
 
