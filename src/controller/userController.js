@@ -52,6 +52,9 @@ const createUser = async (req, res) => {
       postalCode: req.body.postalCode,
       phone: req.body.phone,
       socialMedia: req.body.socialMedia,
+      authorization: {
+        permission: req.body.permission,
+      },
     });
 
     if (newUser.name === "" || newUser.name.length < 6) {
