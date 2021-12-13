@@ -127,14 +127,17 @@ const deletePostById = async (req, res) => {
       });
     }
     let found = await PostSchema.findByIdAndRemove(post);
+
     if (found === null) {
-      res.status(404).json({
+      return res.status(404).json({
         message: "post not found.",
         code: "NOT_FOUND_ERROR",
       });
     }
-    res.status(200).json(found);
+
+    return res.status(200).json(found);
   } catch (error) {
+    console.log(error);
     if (post === undefined)
       res.status(500).json({
         message: "Internal error.",
