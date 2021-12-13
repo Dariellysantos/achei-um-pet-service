@@ -209,11 +209,10 @@ const getById = async (req, res) => {
         code: "NOT_FOUND_ERROR",
       });
     }
-    if (post === undefined)
-      return res.status(500).json({
-        message: "Internal error.",
-        code: "INTERNAL_SERVER_ERROR",
-      });
+    return res.status(500).json({
+      message: "Internal error.",
+      code: "INTERNAL_SERVER_ERROR",
+    });
   }
 };
 
