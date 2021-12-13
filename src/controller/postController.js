@@ -114,6 +114,18 @@ const deletePostById = async (req, res) => {
   }
   try {
     const post = req.params.id;
+    let postFound = await PostSchema.findById(post);
+
+    const token = authHeader.split(" ")[1];
+    //extrair o id do token
+    const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY);
+
+    if (decoded.userId !== postFound.id_user.valueOf()) {
+      return res.status(401).json({
+        message: "Unauthorized user.",
+        code: "USER_UNAUTHORIZED",
+      });
+    }
     let found = await PostSchema.findByIdAndRemove(post);
     if (found === null) {
       res.status(404).json({
