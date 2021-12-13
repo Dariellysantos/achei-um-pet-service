@@ -269,6 +269,14 @@ const getAllHelper = async (req, res) => {
   try {
     const post = req.params.id;
     let found = await PostSchema.findById(post);
+
+    if (found === null) {
+      return res.status(404).json({
+        message: "Post not found.",
+        code: "NOT_FOUND_ERROR",
+      });
+    }
+
     let user = await UserSchema.findById(found.id_user);
 
     if (!user.authorization.permission) {
@@ -287,7 +295,7 @@ const getAllHelper = async (req, res) => {
         userSocialMedia: user.socialMedia,
       },
     });
-  } catch (error) {
+  } catch (err) {
     return res.status(500).json({
       message: "Internal error.",
       code: "INTERNAL_SERVER_ERROR",
