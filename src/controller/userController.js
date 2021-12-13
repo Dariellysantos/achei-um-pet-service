@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const UserSchema = require("../models/usersSchema");
 const jwt = require("jsonwebtoken");
+const bcrypt = require("bcrypt");
 
 const getById = async (req, res) => {
   const authHeader = req.get("authorization");
@@ -50,11 +51,13 @@ const createUser = async (req, res) => {
   }
 
   try {
+    const passwordCrypt = hashPassword(req.body.password);
+    console.log(passwordCrypt);
     const newUser = new UserSchema({
       _id: new mongoose.Types.ObjectId(),
       name: req.body.name,
       email: req.body.email,
-      password: req.body.password,
+      password: passwordCrypt,
       postalCode: req.body.postalCode,
       phone: req.body.phone,
       socialMedia: req.body.socialMedia,
@@ -84,6 +87,7 @@ const createUser = async (req, res) => {
       sevedUser,
     });
   } catch (err) {
+    console.log(err);
     if (err.code === 11000) {
       return res.status(409).json({
         message: "E-mail already registered.",
@@ -169,6 +173,10 @@ const updateUserById = async (req, res) => {
       code: "NOT_AUTHORIZED",
     });
   }
+};
+
+const hashPassword = (password) => {
+  return bcrypt.hashSync(password, parseInt(process.env.BCRIPT_SALTS));
 };
 
 module.exports = {
