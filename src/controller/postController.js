@@ -121,6 +121,12 @@ const deletePostById = async (req, res) => {
     const post = req.params.id;
     let postFound = await PostSchema.findById(post);
 
+    if (postFound === null) {
+      return res.status(404).json({
+        message: "Post not found.",
+        code: "NOT_FOUND_ERROR",
+      });
+    }
     const token = authHeader.split(" ")[1];
     const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY);
 
