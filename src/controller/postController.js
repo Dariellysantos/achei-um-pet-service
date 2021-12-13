@@ -66,7 +66,7 @@ const createPost = async (req, res) => {
 
     const sevedPost = await newPost.save();
 
-    res.status(200).json({
+    return res.status(200).json({
       message: "Post registered successfully!",
       sevedPost,
     });
@@ -98,7 +98,7 @@ const getByUserId = async (req, res) => {
       });
     }
 
-    res.status(200).json(found);
+    return res.status(200).json(found);
   } catch (error) {
     if (post === undefined)
       return res.status(500).json({
@@ -144,7 +144,7 @@ const deletePostById = async (req, res) => {
     return res.status(200).json(found);
   } catch (error) {
     if (post === undefined)
-      res.status(500).json({
+      return res.status(500).json({
         message: "Internal error.",
         code: "INTERNAL_SERVER_ERROR",
       });
@@ -203,7 +203,7 @@ const getById = async (req, res) => {
     const postId = req.params.id;
     let found = await PostSchema.findById(postId);
 
-    res.status(200).json(found);
+    return res.status(200).json(found);
   } catch (err) {
     if (err.massageFormat === undefined) {
       return res.status(409).json({
@@ -284,7 +284,7 @@ const getAllHelper = async (req, res) => {
       },
     });
   } catch (error) {
-    res.status(500).json({
+    return res.status(500).json({
       message: "Internal error.",
       code: "INTERNAL_SERVER_ERROR",
     });
