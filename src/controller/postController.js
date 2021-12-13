@@ -309,12 +309,16 @@ const getAllHelper = async (req, res) => {
     }
 
     return res.status(200).json({
+      message: "Contact details loaded successfully.",
+      code: "SUCCESS",
+      data: {
         id: found._id,
         owner: {
           userId: user._id,
           userName: user.name,
           userPhone: user.phone,
           userSocialMedia: user.socialMedia,
+        },
       },
     });
   } catch (err) {
