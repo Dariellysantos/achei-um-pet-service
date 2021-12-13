@@ -29,7 +29,7 @@ const getById = async (req, res) => {
       socialMedia: post.socialMedia,
     }));
 
-    res.status(200).json(userResponse);
+    return res.status(200).json(userResponse);
   } catch (error) {
     if (userDb === undefined)
       return res.status(500).json({
@@ -127,7 +127,7 @@ const updateUserById = async (req, res) => {
       }
 
       if (findUser.name === "" || findUser.name.length < 6) {
-        res.status(400).json({
+        return res.status(400).json({
           message: "Empty or invalid name.",
           code: "ERROR_INVALID_NAME",
         });
@@ -138,7 +138,7 @@ const updateUserById = async (req, res) => {
         findUser.email.indexOf("@") < 0 ||
         findUser.email.indexOf(".com") < 0
       ) {
-        res.status(400).json({
+        return res.status(400).json({
           message: "Empty or invalid email.",
           code: "ERROR_INVALID_EMAIL",
         });
