@@ -158,10 +158,10 @@ const deletePostById = async (req, res) => {
     });
   } catch (error) {
     if (post === undefined)
-      return res.status(500).json({
-        message: "Internal error.",
-        code: "INTERNAL_SERVER_ERROR",
-      });
+    return res.status(500).json({
+      message: "Internal error.",
+      code: "INTERNAL_SERVER_ERROR",
+    });
   }
 };
 
