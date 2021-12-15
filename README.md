@@ -33,7 +33,6 @@ Essa é uma API feita para o projeto final do [{reprograma}](https://reprograma.
 <br><br>
 
 <h1 align="center">
- <a href="https://www.canva.com/design/DAEw0xrUXM8/Xsl8LfLglSQaJs7tvGwM0g/view?utm_content=DAEw0xrUXM8&utm_campaign=designshare&utm_medium=link&utm_source=publishpresent"><img alt="Deploy on Heroku" src="https://img.shields.io/badge/Apresentação do projeto-canva.com-purple">
 
 </h1>
 
@@ -49,7 +48,7 @@ Há mais de 6 anos faço ações voluntárias na causa animal, com materias de d
 
 Juntamente com uma protetora, Viviane Arêdes, criamos o projeto Tranformar Cãotagem. Com o intuito de efetivamente fazer a diferença na quantidade de animais em citiação de rua na nossa cidade de Contagem, esbarramos em uma situação de falta de informações sobre a quantidade de animais na nossa cidade.
 
-Essas situações fizeram a ideia do Achei um pet surgir, e hoje com o conhecimento em API adquiridos no [{reprograma}](https://reprograma.com.br/) pude realizá-lo.
+Essas situações fizeram a ideia do Achei um pet surgir, e hoje com o conhecimento em API adquiridos no pude realizá-lo.
 
 </h1>
 <h1 align="center">
@@ -58,7 +57,7 @@ Essas situações fizeram a ideia do Achei um pet surgir, e hoje com o conhecime
 
 <br>
 
-  <img src="assets/transformar-caotagem.png" alt="logo da API" >
+<img src="assets/transformar-caotagem.png" alt="logo da API>
 
 <br>
 
