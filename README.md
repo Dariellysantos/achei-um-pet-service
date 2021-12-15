@@ -12,6 +12,7 @@
 
   <img src="assets/achei-um-pet-capa.png" alt="logo da API" >
   <br><br>
+<a href="https://achei-um-pet-service.herokuapp.com/"><img alt="Achei um pet" src="https://img.icons8.com/nolan/64/internet.png"/>
 </h1>
 
 ## **Sumário**
@@ -39,9 +40,12 @@ O "Achei um pet" tem como objetivo registrar animais que estãoo em situação d
 Muitas pessoas desconhecem todo trabalho feito anterior ao processo de animais resgatados, muitas das vezes atribuíndo os cuidados anteriores somente a ONGs, porém há uma GRANDE comunidade de pessoas, em maioria mulheres, que muitas das vezes sem condições financeira e sem todos os recursos necessários se disponibilizam a ajudar a causa fazendo resgates, transportes, levando na assistência veterinária e dando lares temporários a esses animais em estado de rua.
 
 Essa é uma API feita para o projeto final do [{reprograma}](https://reprograma.com.br/), e tem como objetivo registrar casos e pessoas que desejam ajudar, fazendo as conexões principalmente através da aproximidade entre eles.
+<br><br>
+
+<h1 align="center">
+<a href="https://www.canva.com/design/DAEw0xrUXM8/Xsl8LfLglSQaJs7tvGwM0g/view?utm_content=DAEw0xrUXM8&utm_campaign=designshare&utm_medium=link&utm_source=publishpresent"><img alt="Achei um pet" src="https://img.icons8.com/nolan/64/internet.png"/>
 
 </h1>
-<h1 align="center">
 
 ## **Motivações**
 
