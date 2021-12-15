@@ -74,6 +74,17 @@ const createUser = async (req, res) => {
         code: "ERROR_INVALID_EMAIL",
       });
     }
+
+    if (
+      newUser.postalCode.toString().length !== 8 ||
+      newUser.postalCode === ""
+    ) {
+      return res.status(400).json({
+        message: "Incomplete or empty postal code",
+        code: "ERROR_POSTAL_CODE",
+      });
+    }
+
     const sevedUser = await newUser.save();
 
     return res.status(201).json({
