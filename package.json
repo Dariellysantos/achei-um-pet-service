@@ -27,6 +27,8 @@
     "mockingoose": "^2.15.2",
     "mongoose": "^6.0.13",
     "node-mocks-http": "^1.11.0",
-    "nodemon": "^2.0.15"
+    "nodemon": "^2.0.15",
+    "swagger-autogen": "^2.17.2",
+    "swagger-ui-express": "^4.2.0"
   }
 }
