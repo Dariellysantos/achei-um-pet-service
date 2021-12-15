@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 const PostSchema = require("../models/postsSchema");
-const { post } = require("../routes/postRoutes");
 const UserSchema = require("../models/usersSchema");
 const jwt = require("jsonwebtoken");
 
@@ -16,7 +15,6 @@ const createPost = async (req, res) => {
 
   const token = authHeader.split(" ")[1];
   const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY);
-
   try {
     const newPost = new PostSchema({
       _id: new mongoose.Types.ObjectId(),
@@ -71,12 +69,11 @@ const createPost = async (req, res) => {
       });
     }
 
-    const sevedPost = await newPost.save();
-
+    const savedPost = await newPost.save();
     return res.status(200).json({
       message: "Post registered successfully!",
       code: "SUCCESS",
-      data: sevedPost,
+      data: savedPost,
     });
   } catch (error) {
     return res.status(500).json({
@@ -97,7 +94,6 @@ const getByUserId = async (req, res) => {
   try {
     const post = req.params.id;
     let found = await PostSchema.find({ id_user: post });
-    console.log(found);
 
     if (found.length === 0) {
       return res.status(404).json({
@@ -163,7 +159,6 @@ const deletePostById = async (req, res) => {
       data: decoded,
     });
   } catch (error) {
-    if (post === undefined)
     return res.status(500).json({
       message: "Internal error.",
       code: "INTERNAL_SERVER_ERROR",
