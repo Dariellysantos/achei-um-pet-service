@@ -1,18 +1,8 @@
-<p align="center">
-  <a>
-    <a href="https://achei-um-pet-service.herokuapp.com/"><img alt="Deploy on Heroku" src="https://img.shields.io/badge/deploy-heroku.com-purple">
-    <a href="https://www.mongodb.com/cloud/atlas"><img alt="Database MongoDB" src="https://img.shields.io/badge/database-mongodb.com-purple">
-    <a href="https://nodejs.org/pt-br/"><img alt="Node version" src="https://img.shields.io/badge/node-v12.18.3-purple">
-    
-   
-  </a>
-</p>
-
 <h1 align="center">
 
   <img src="assets/achei-um-pet-capa.png" alt="logo da API" >
   <br><br>
-<a href="https://achei-um-pet-service.herokuapp.com/"><img alt="Achei um pet" src="https://img.icons8.com/nolan/64/internet.png"/>
+ <a href="https://achei-um-pet-service.herokuapp.com/"><img alt="Deploy on Heroku" src="https://img.shields.io/badge/deploy-heroku.com-purple">
 </h1>
 
 ## **Sumário**
@@ -43,7 +33,7 @@ Essa é uma API feita para o projeto final do [{reprograma}](https://reprograma.
 <br><br>
 
 <h1 align="center">
-<a href="https://www.canva.com/design/DAEw0xrUXM8/Xsl8LfLglSQaJs7tvGwM0g/view?utm_content=DAEw0xrUXM8&utm_campaign=designshare&utm_medium=link&utm_source=publishpresent"><img alt="Achei um pet" src="https://img.icons8.com/nolan/64/internet.png"/>
+ <a href="https://www.canva.com/design/DAEw0xrUXM8/Xsl8LfLglSQaJs7tvGwM0g/view?utm_content=DAEw0xrUXM8&utm_campaign=designshare&utm_medium=link&utm_source=publishpresent"><img alt="Deploy on Heroku" src="https://img.shields.io/badge/Apresentação do projeto-canva.com-purple">
 
 </h1>
 
