@@ -1,5 +1,7 @@
 const express = require("express");
 const cors = require("cors");
+const swaggerUi = require("swagger-ui-express");
+const swaggerFile = require("../swagger/swagger_output.json");
 
 require("dotenv").config();
 const db = require("./database/mongoConfig");
@@ -15,6 +17,8 @@ app.use(express.json());
 app.use("/users", userRouter);
 app.use("/posts", postRouter);
 app.use("/login", loginRouter);
+
+app.use("/", swaggerUi.serve, swaggerUi.setup(swaggerFile));
 
 db.connect();
 

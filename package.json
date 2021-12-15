@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "test": "jest --coverage",
-    "start": "nodemon server.js"
+    "start": "nodemon server.js",
+    "swagger-autogen": "node swagger.js"
   },
   "repository": {
     "type": "git",
