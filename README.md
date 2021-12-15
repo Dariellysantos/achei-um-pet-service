@@ -33,7 +33,8 @@ Essa é uma API feita para o projeto final do [{reprograma}](https://reprograma.
 <br><br>
 
 <h1 align="center">
-
+ <a href="https://www.canva.com/design/DAEw0xrUXM8/Xsl8LfLglSQaJs7tvGwM0g/view?utm_content=DAEw0xrUXM8&utm_campaign=designshare&utm_medium=link&utm_source=publishpresent"><img alt="Deploy on Heroku" src="https://img.shields.io/badge/Apresentação-canva.com-purple">
+ </a>
 </h1>
 
 ## **Motivações**
@@ -57,7 +58,7 @@ Essas situações fizeram a ideia do Achei um pet surgir, e hoje com o conhecime
 
 <br>
 
-<img src="assets/transformar-caotagem.png" alt="logo da API>
+  <img src="assets/transformar-caotagem.png" alt="logo da API" >
 
 <br>
 
@@ -77,7 +78,7 @@ garantia do bem estar dos animais.
 
 <br>
 
-  <img src="assets/visao-atualizada.png" alt="logo da API" >
+<img src="assets/visao-atualizada.png" alt="logo da API">
 </h1>
 
 <br>
@@ -215,6 +216,6 @@ Esta API está sendo escutada na `porta 3000` e para que todas as rotas possam s
 </h1>
 <hr>
 
-Criado com por **Darielly Santos** e o apoio das professoras, monitoras, orientação pedagógica, minhas amigasde turma que se apoiaram durante todo p processo e minha amiga e mentora Adila Fatobenne que sempre esteve a disposição para me tirar duvidas. SEm elas esse trabalho não existiria. Obrigada !
+Criado com por **Darielly Santos** e o apoio das professoras, monitoras, orientação pedagógica, minhas amigasde turma que se apoiaram durante todo p processo e minha amiga e mentora Adila Fattobene que sempre esteve a disposição para me tirar duvidas. SEm elas esse trabalho não existiria. Obrigada !
 
 [![Linkedin Badge](https://img.shields.io/badge/-Darielly%20Santos-blue?style=flat-square&logo=Linkedin&logoColor=white)](https://www.linkedin.com/in/darielly-santos/)
