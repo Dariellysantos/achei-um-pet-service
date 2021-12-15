@@ -52,7 +52,13 @@ const createPost = async (req, res) => {
         code: "ERROR_NO_PHOTO",
       });
     }
-
+    const code = newPost.address.postalCode.toString().length;
+    if (newPost.address.postalCode === " " || code !== 8) {
+      return res.status(400).json({
+        message: "Incomplete or empty postal code",
+        code: "ERROR_POSTAL_CODE",
+      });
+    }
     if (
       newPost.address.street === "" ||
       newPost.address.number === 0 ||
