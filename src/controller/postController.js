@@ -174,13 +174,46 @@ const getAll = async (req, res) => {
       code: "NOT_AUTHORIZED_WITHOUT_TOKEN",
     });
   }
+
   try {
+    const { postalCodeFilter } = req.query;
+    let postalCodeUser;
+
     const postsDb = await PostSchema.find();
 
-    const postsResponse = postsDb.map((post) => ({
-      id: post.id,
+    let postsResponse;
+
+    if (postalCodeFilter) {
+      const token = authHeader.split(" ")[1];
+      const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY);
+
+      const idUser = decoded.userId.valueOf();
+      let dataUser = await UserSchema.findById(idUser);
+
+      postalCodeUser = dataUser.postalCode
+        .toString()
+        .substr(0, postalCodeFilter);
+
+      postsDb = await PostSchema.find();
+
+      postsResponse = postsDb.filter((p) => {
+        return (
+          p.address.postalCode.toString().substr(0, postalCodeFilter) ===
+          postalCodeUser
+        );
+      });
+
+      return res.status(200).json({
+        message: "User with access to the feed.",
+        code: "SUCCESS",
+        data: postsResponse,
+      });
+    }
+
+    postsResponse = postsDb.map((post) => ({
       photo: post.photo,
       address: {
+        postalCode: post.address.postalCode,
         district: post.address.district,
         city: post.address.city,
       },
