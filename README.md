@@ -74,7 +74,7 @@ garantia do bem estar dos animais.
 
 <br>
 
-## **Vissão, valores e objetivo do projeto**
+## **Visão, valores e objetivo do projeto**
 
 <br>
 
