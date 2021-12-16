@@ -52,7 +52,6 @@ Juntamente com uma protetora, Viviane Arêdes, criamos o projeto Tranformar Cão
 Essas situações fizeram a ideia do Achei um pet surgir, e hoje com o conhecimento em API adquiridos no pude realizá-lo.
 
 </h1>
-<h1 align="center">
 
 ## **Projeto Transformar CÃOtagem**
 
