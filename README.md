@@ -190,7 +190,7 @@ Esta API está sendo escutada na `porta 3000` e para que todas as rotas possam s
 
 <br><br>
 
-  <img src="assets/melhorias-2.png" alt="logo da API" >
+  <img src="assets/melhorias-1.png" alt="logo da API" >
   <br><br>
 
 - Tirar fotos e posta-las direto de dispositivos moveis com acesso a internet.
