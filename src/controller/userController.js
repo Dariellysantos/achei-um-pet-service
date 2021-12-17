@@ -23,6 +23,13 @@ const getById = async (req, res) => {
       });
     }
 
+    if (!userDb[0].authorization.permission) {
+      console.log(userDb);
+      return res.status(401).json({
+        message: "Post author data is not authorized for sharing",
+        code: "UNAUTHOZIZED_ DATA_SHARING",
+      });
+    }
     const userResponse = userDb.map((post) => ({
       name: post.name,
       email: post.email,
