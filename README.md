@@ -41,7 +41,7 @@ Essa é uma API feita para o projeto final do [{reprograma}](https://reprograma.
 
 <br>
 
-  <img src="assets/situação-dogs.png" alt="logo da API" >
+  <img src="assets/face.png" alt="logo da API" >
 
 <br>
 
@@ -52,12 +52,13 @@ Juntamente com uma protetora, Viviane Arêdes, criamos o projeto Tranformar Cão
 Essas situações fizeram a ideia do Achei um pet surgir, e hoje com o conhecimento em API adquiridos no pude realizá-lo.
 
 </h1>
+<h1 align="center">
 
 ## **Projeto Transformar CÃOtagem**
 
 <br>
 
-  <img src="assets/transformar-caotagem.png" alt="logo da API" >
+  <img src="assets/3.png" alt="logo da API" >
 
 <br>
 
@@ -77,18 +78,16 @@ garantia do bem estar dos animais.
 
 <br>
 
-<img src="assets/visao-atualizada.png" alt="logo da API">
+<img src="assets/4.png" alt="logo da API">
 </h1>
 
 <br>
-
-<h1 align="center">
 
 ## **Escopo para aplicação mobile**
 
 <br>
 
-  <img src="assets/escopo.png" alt="logo da API" >
+  <img src="assets/5.png" alt="logo da API" >
 </h1>
 
 <h1 align="center">
@@ -183,7 +182,7 @@ Esta API está sendo escutada na `porta 3000` e para que todas as rotas possam s
 
 <br>
 
-  <img src="assets/implementacao2.png" alt="logo da API" >
+  <img src="assets/8.png" alt="logo da API" >
 <br><br>
 
 - Mapear os casos e mostra-los no mapa.
@@ -191,7 +190,7 @@ Esta API está sendo escutada na `porta 3000` e para que todas as rotas possam s
 
 <br><br>
 
-  <img src="assets/implementacao1.png" alt="logo da API" >
+  <img src="assets/7.png" alt="logo da API" >
   <br><br>
 
 - Tirar fotos e posta-las direto de dispositivos moveis com acesso a internet.
