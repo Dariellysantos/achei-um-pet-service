@@ -41,7 +41,7 @@ Essa é uma API feita para o projeto final do [{reprograma}](https://reprograma.
 
 <br>
 
-  <img src="assets/face.png" alt="logo da API" >
+  <img src="assets/pedidos-de-ajuda.png" alt="logo da API" >
 
 <br>
 
@@ -58,7 +58,7 @@ Essas situações fizeram a ideia do Achei um pet surgir, e hoje com o conhecime
 
 <br>
 
-  <img src="assets/3.png" alt="logo da API" >
+  <img src="assets/logo-caotagem.png" alt="logo da API" >
 
 <br>
 
@@ -78,7 +78,7 @@ garantia do bem estar dos animais.
 
 <br>
 
-<img src="assets/4.png" alt="logo da API">
+<img src="assets/valores-caotagem.png" alt="logo da API">
 </h1>
 
 <br>
@@ -87,7 +87,7 @@ garantia do bem estar dos animais.
 
 <br>
 
-  <img src="assets/5.png" alt="logo da API" >
+  <img src="assets/escopo-app.png" alt="logo da API" >
 </h1>
 
 <h1 align="center">
@@ -182,7 +182,7 @@ Esta API está sendo escutada na `porta 3000` e para que todas as rotas possam s
 
 <br>
 
-  <img src="assets/8.png" alt="logo da API" >
+  <img src="assets/melhorias-2.png" alt="logo da API" >
 <br><br>
 
 - Mapear os casos e mostra-los no mapa.
@@ -190,7 +190,7 @@ Esta API está sendo escutada na `porta 3000` e para que todas as rotas possam s
 
 <br><br>
 
-  <img src="assets/7.png" alt="logo da API" >
+  <img src="assets/melhorias-2.png" alt="logo da API" >
   <br><br>
 
 - Tirar fotos e posta-las direto de dispositivos moveis com acesso a internet.
