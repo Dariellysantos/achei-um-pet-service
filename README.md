@@ -25,11 +25,11 @@
 
 <br>
 
-O "Achei um pet" tem como objetivo registrar animais que estãoo em situação de rua, reunindo as informações em uma comunidade de pessoas que desejam ajuda-los.
+O "Achei um pet" tem como objetivo registrar animais que estão em situação de rua, reunindo as informações em uma comunidade de pessoas que desejam ajuda-los.
 
-Muitas pessoas desconhecem todo trabalho feito anterior ao processo de animais resgatados, muitas das vezes atribuíndo os cuidados anteriores somente a ONGs, porém há uma GRANDE comunidade de pessoas, em maioria mulheres, que muitas das vezes sem condições financeira e sem todos os recursos necessários se disponibilizam a ajudar a causa fazendo resgates, transportes, levando na assistência veterinária e dando lares temporários a esses animais em estado de rua.
+Muitas pessoas desconhecem todo trabalho feito anterior ao processo de adoção dos animais resgatados, muitas das vezes atribuíndo os cuidados anteriores somente a ONGs, porém há uma GRANDE comunidade de pessoas, em maioria mulheres, que muitas das vezes sem condições financeira e sem todos os recursos necessários se disponibilizam a ajudar a causa fazendo resgates, transportes, levando na assistência veterinária e dando lares temporários a esses animais em estado de rua.
 
-Essa é uma API feita para o projeto final do [{reprograma}](https://reprograma.com.br/), e tem como objetivo registrar casos e pessoas que desejam ajudar, fazendo as conexões principalmente através da aproximidade entre eles.
+Essa é uma API feita para o projeto final do [{reprograma}](https://reprograma.com.br/), e tem como objetivo registrar casos de animais nas ruas e pessoas que desejam ajudar, fazendo as conexões principalmente através da aproximidade entre eles.
 <br><br>
 
 <h1 align="center">
@@ -45,11 +45,11 @@ Essa é uma API feita para o projeto final do [{reprograma}](https://reprograma.
 
 <br>
 
-Há mais de 6 anos faço ações voluntárias na causa animal, com materias de divulgações de casos que precisam de ajuda e fazendo alguns resgates. Durante todo esse tempo as redes sociais eram os principais veiculos de divulgação, porém alguns problemas como perder informações ao meio de postagens de outros assuntos, problema com entrega desse tipo de postagens e falta de ferramentas especificas que ajudam no processo fazem com que nem sempre a rede de apoio atinja seu potêncial maximo e ajude todos ou a maioria dos animais que encontramos todos os dias nas ruas nos nossos trajetos coditianos.
+Há mais de 6 anos faço ações voluntárias na causa animal, com materias de divulgações de casos que precisam de ajuda e fazendo alguns resgates. Durante todo esse tempo as redes sociais eram os principais veiculos de divulgação, porém alguns problemas como perder informações ao meio de postagens de outros assuntos, problema com entrega desse tipo de postagens e falta de ferramentas especificas que ajudam no processo fazem com que nem sempre a rede de apoio atinja seu potêncial maximo e ajude todos ou a maioria dos animais que encontramos todos os dias nas ruas dos trajetos coditianos.
 
-Juntamente com uma protetora, Viviane Arêdes, criamos o projeto Tranformar Cãotagem. Com o intuito de efetivamente fazer a diferença na quantidade de animais em citiação de rua na nossa cidade de Contagem, esbarramos em uma situação de falta de informações sobre a quantidade de animais na nossa cidade.
+Juntamente com uma protetora, Viviane Arêdes, criamos o projeto Tranformar Cãotagem. Tinhamos o intuito de efetivamente fazer a diferença na quantidade de animais de rua na nossa cidade de Contagem, porém esbarramos na falta de informações sobre a quantidade de animais na nossa cidade.
 
-Essas situações fizeram a ideia do Achei um pet surgir, e hoje com o conhecimento em API adquiridos no pude realizá-lo.
+Essas situações fizeram a ideia do Achei um pet surgir, e hoje com o conhecimento em API adquiridos no curso pude realizá-lo.
 
 </h1>
 <h1 align="center">
@@ -62,14 +62,14 @@ Essas situações fizeram a ideia do Achei um pet surgir, e hoje com o conhecime
 
 <br>
 
-Essa API foi desenvolvida com intuito de ser uma ferramento de auxilio a comunidade disponibilizada pelo projeto [TransformarCãotagem](https://www.instagram.com/transformarcaotagem/).
-O projeto tem como objetivo ajudar nos resgates de Cadelas prenhas, com linha e filhotes das ruas da cidade de Contagem - MG. O projeto com tem investimento e é mantido com doaçẽs e rifas solidárias.
+Essa API foi desenvolvida com intuito de ser uma ferramenta de auxilio a comunidade disponibilizada pelo projeto [TransformarCãotagem](https://www.instagram.com/transformarcaotagem/).
+O projeto tem como objetivo ajudar nos resgates de Cadelas prenhas ou com ninhadas e filhotes das ruas da cidade de Contagem - MG. O projeto não tem investimento e é mantido com doaçẽs e rifas solidárias.
 
-Pretendiamos fazer métricas de acompanhamento da população de animais de rua, porém faltam informações advindas da prefeitura e zoonose de sensos sobre animais de rua.
+Pretendiamos fazer métricas de acompanhamento da população de animais de rua, porém faltam informações advindas da prefeitura e zoonose e de sensos sobre animais de rua.
 Acreditamos que linhando resgate de cadelas com ninhadas ou prenhas, castração e adoção responsável, e futuramente com sucesso de nossos esforços, a identificação e
 registro desses cães em uma base de dados, almejamos gradualmente frear e
 diminuir os casos de cachorro de rua.
-Lutamos para que o poder público assuma sua responsabilidade a respeito da
+Lutamos também para que o poder público assuma sua responsabilidade a respeito da
 garantia do bem estar dos animais.
 
 <br>
