@@ -1,4 +1,5 @@
 const schemaPost = require("../models/Schema/postsSchema");
+const { convertPostDbToPost } = require("./converters/postsConverter");
 
 exports.getById = async (postId) => {
   const post = await PostSchema.findById(postId);
@@ -7,5 +8,5 @@ exports.getById = async (postId) => {
     return [];
   }
 
-  return [post[0]];
+  return [convertPostDbToPost(post[0])];
 };
