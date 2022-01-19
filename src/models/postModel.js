@@ -1,6 +1,6 @@
 const schemaPost = require("../models/Schema/postsSchema");
 
-const getById = (postId) => {
+exports.getById = async (postId) => {
   const post = await PostSchema.findById(postId);
 
   if (post.lenth === 0) {
