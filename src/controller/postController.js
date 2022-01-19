@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 const PostSchema = require("../models/postsSchema");
 const UserSchema = require("../models/usersSchema");
 const jwt = require("jsonwebtoken");
+const postsService = require("../service/postsService");
 
 const createPost = async (req, res) => {
   const authHeader = req.get("authorization");
@@ -247,22 +248,25 @@ const getById = async (req, res) => {
       code: "NOT_AUTHORIZED_WITHOUT_TOKEN",
     });
   }
+
   try {
     const postId = req.params.id;
-    let found = await PostSchema.findById(postId);
+
+    const post = postsService.getById(postId);
 
     return res.status(200).json({
       message: "Posts successfully loaded.",
       code: "SUCCESS",
-      data: found,
+      data: post,
     });
   } catch (err) {
-    if (err.massageFormat === undefined) {
-      return res.status(409).json({
+    if (err.message === "POST_NOT_FOUND_ERROR") {
+      return res.status(404).json({
         message: "Post not found.",
         code: "NOT_FOUND_ERROR",
       });
     }
+
     return res.status(500).json({
       message: "Internal error.",
       code: "INTERNAL_SERVER_ERROR",
