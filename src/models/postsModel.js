@@ -1,4 +1,4 @@
-const schema = require("../models/Schema/postsSchema");
+const schema = require("./Schema/postsSchema");
 const { convertPostDbToPost } = require("./converters/postsConverter");
 
 exports.getById = async (postId) => {
